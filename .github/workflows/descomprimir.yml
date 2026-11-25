@@ -1,0 +1,21 @@
+name: descomprimir
+on:
+  push:
+    paths: ["*.zip"]
+permissions:
+  contents: write
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          set -e
+          z=$(ls *.zip | head -1)
+          unzip -o "$z"
+          git rm -q "$z"
+          git add -A
+          git config user.name "DylanRoldan21"
+          git config user.email "DylanRoldan21@users.noreply.github.com"
+          git commit -m "Versión inicial del proyecto"
+          git push

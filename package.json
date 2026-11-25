@@ -1,0 +1,12 @@
+{
+  "name": "facildent-bot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "logs": "wrangler tail",
+    "test": "node test.mjs"
+  },
+  "devDependencies": { "wrangler": "^4.0.0" }
+}
